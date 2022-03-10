@@ -1,0 +1,40 @@
+<div *ngIf="regions; else noRegion">
+
+  <div class="text-center">
+    <h2 class="mt-5 text-secondary">Les régions de France</h2>
+    <fa-icon class="wine" [icon]="faWine"></fa-icon>
+    <fa-icon class="heart text-danger" [icon]="faHeart"></fa-icon>
+    <fa-icon class="cheese" [icon]="faCheese"></fa-icon>
+  </div>
+
+  <!-- Tentative d'@Input -->
+  <!-- <app-departements-liste [nombreDepartementsParRegion]="nombreDeDepartementsAssocies"></app-departements-liste> -->
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Régions</li>
+    </ol>
+  </nav>
+
+  <table class="table table-striped table-hover text-center">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Code</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let region of regions">
+        <tr routerLink="/regions/{{region.code}}/departments">
+          <th>{{region.nom}}</th>
+          <th>{{region.code}}</th>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+</div>
+
+<ng-template #noRegion>
+  <div>Aucune région trouvée</div>
+</ng-template>

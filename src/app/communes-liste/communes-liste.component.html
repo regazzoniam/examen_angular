@@ -1,0 +1,44 @@
+<div *ngIf="communes; else noCommune">
+
+  <div class="text-center text-success mt-5">
+    <fa-icon class="success" [icon]="faSuccess"></fa-icon>
+    <p>{{nombreCommunesParDepartement}} commune(s) trouvée(s)</p>
+  </div>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Régions</a></li>
+      <li class="breadcrumb-item"><a routerLink="/">Départements</a></li>
+      <!-- Balise ci-dessus uniquement pour le rendu : elle n'est pas fonctionnelle -->
+      <!-- <li class="breadcrumb-item"><a routerLink="regions/{{communes[0].codeRegion}}/departments">Départements</a></li> -->
+      <li class="breadcrumb-item active" aria-current="page">Communes</li>
+    </ol>
+  </nav>
+
+  <table class="table table-striped table-hover text-center">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Code</th>
+        <th>Département</th>
+        <th>Code postaux</th>
+        <th>Population</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let commune of communes">
+        <tr>
+          <th>{{commune.nom}}</th>
+          <th>{{commune.code}}</th>
+          <th>{{commune.codeDepartement}}</th>
+          <th>{{commune.codesPostaux}}</th>
+          <th>{{commune.population}}</th>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+</div>
+<ng-template #noCommune>
+  Aucun commune trouvée
+</ng-template>
