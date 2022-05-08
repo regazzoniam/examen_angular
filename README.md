@@ -1,4 +1,7 @@
-# AREGADExamen
+# Régions de France
+
+Liste des régions de France, de leurs départements respectifs et de leurs villes respectives
+_____________________________________________________________________________________________________
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
 
